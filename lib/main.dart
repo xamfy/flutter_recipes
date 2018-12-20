@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+// libraries 3rd party
+import 'package:cached_network_image/cached_network_image.dart';
+
 // pages
 import 'package:flutter_chat/login_page.dart';
+import 'bottom_nav.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -26,10 +30,11 @@ class Home extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage('https://bit.ly/2ByDaIq'),
+                image: CachedNetworkImageProvider('https://bit.ly/2ByDaIq'),
               )),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage('https://bit.ly/2kdejjC'),
+                backgroundImage:
+                    CachedNetworkImageProvider('https://bit.ly/2kdejjC'),
               ),
               accountEmail: Text('trump@covfefe.com'),
               accountName: Text("Covfefe"), // lol :p
@@ -46,6 +51,13 @@ class Home extends StatelessWidget {
               title: Text('Close'),
               onTap: () {
                 Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              title: Text('Bottom Nav'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => BottomNav()));
               },
             ),
           ],
