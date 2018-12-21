@@ -6,6 +6,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 // pages
 import 'package:flutter_chat/login_page.dart';
 import 'bottom_nav.dart';
+import 'http_example.dart';
+import 'tab_nav.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -58,6 +60,20 @@ class Home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => BottomNav()));
+              },
+            ),
+            ListTile(
+              title: Text('Http'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => HttpExample()));
+              },
+            ),
+            ListTile(
+              title: Text('TabBar nav'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => TabNavWidget()));
               },
             ),
           ],
