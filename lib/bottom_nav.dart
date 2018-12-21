@@ -23,6 +23,7 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Bottom Nav'),
       ),
       body: _children[_currentIndex],

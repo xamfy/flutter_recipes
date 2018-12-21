@@ -25,6 +25,7 @@ class _TabNavWidgetState extends State<TabNavWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: new Text("TabBar Nav"),
         backgroundColor: Colors.blueAccent,
         bottom: new TabBar(

@@ -23,6 +23,7 @@ class _CounterState extends State<Counter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Counter'),
         backgroundColor: Colors.blueAccent,
       ),
@@ -41,6 +42,7 @@ class _CounterState extends State<Counter> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: null,
             onPressed: incrementCounter,
             tooltip: 'Increment',
             child: Icon(Icons.add),
@@ -49,6 +51,7 @@ class _CounterState extends State<Counter> {
             padding: EdgeInsets.only(bottom: 10.0),
           ),
           FloatingActionButton(
+            heroTag: null,
             onPressed: decrementCounter,
             tooltip: 'Decrement',
             child: Icon(Icons.remove),

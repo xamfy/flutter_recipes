@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
         //   ),
         // ),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text('Login'),
           backgroundColor: Colors.blueAccent,
         ),
