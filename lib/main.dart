@@ -8,6 +8,7 @@ import 'package:flutter_chat/login_page.dart';
 import 'bottom_nav.dart';
 import 'http_example.dart';
 import 'tab_nav.dart';
+import 'stateful_example.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -74,6 +75,13 @@ class Home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => TabNavWidget()));
+              },
+            ),
+            ListTile(
+              title: Text('Counter'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Counter()));
               },
             ),
           ],
