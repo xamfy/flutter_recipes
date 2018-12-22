@@ -9,6 +9,7 @@ import 'bottom_nav.dart';
 import 'http_example.dart';
 import 'tab_nav.dart';
 import 'stateful_example.dart';
+import 'cloud_firestore.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -82,6 +83,14 @@ class Home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => Counter()));
+              },
+            ),
+            ListTile(
+              title: Text('Cloud firestore'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        CloudFireStoreExample()));
               },
             ),
           ],
