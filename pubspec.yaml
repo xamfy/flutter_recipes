@@ -22,6 +22,8 @@ dependencies:
   cached_network_image: ^0.5.1
   http: ^0.12.0
   cloud_firestore:
+  google_sign_in:
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:

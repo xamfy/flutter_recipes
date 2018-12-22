@@ -10,6 +10,7 @@ import 'http_example.dart';
 import 'tab_nav.dart';
 import 'stateful_example.dart';
 import 'cloud_firestore.dart';
+import 'card.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -91,6 +92,13 @@ class Home extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
                         CloudFireStoreExample()));
+              },
+            ),
+            ListTile(
+              title: Text('Card'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => CardWidget()));
               },
             ),
           ],

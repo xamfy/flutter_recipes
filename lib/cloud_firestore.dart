@@ -18,7 +18,9 @@ class _CloudFireStoreExampleState extends State<CloudFireStoreExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Baby Name Votes'),
+        backgroundColor: Colors.blueAccent,
       ),
       body: _buildBody(context),
     );
