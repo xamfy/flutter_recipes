@@ -48,8 +48,8 @@ class Home extends StatelessWidget {
               title: Text('Login'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (BuildContext context) => new LoginPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => LoginPage()));
               },
             ),
             ListTile(
