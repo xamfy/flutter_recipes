@@ -25,6 +25,7 @@ dependencies:
   google_sign_in:
   firebase_auth:
   shared_preferences:
+  path_provider:
 
 dev_dependencies:
   flutter_test:

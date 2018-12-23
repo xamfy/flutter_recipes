@@ -12,6 +12,7 @@ import 'stateful_example.dart';
 import 'cloud_firestore.dart';
 import 'card.dart';
 import 'shared_preferences_example.dart';
+import 'reading_writing_files.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -108,6 +109,13 @@ class Home extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
                         SharedPrefExample(title: 'Shared prefs')));
+              },
+            ),
+            ListTile(
+              title: Text('Reading writing files'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => FilesExample()));
               },
             ),
           ],
