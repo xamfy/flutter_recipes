@@ -11,6 +11,7 @@ import 'tab_nav.dart';
 import 'stateful_example.dart';
 import 'cloud_firestore.dart';
 import 'card.dart';
+import 'shared_preferences_example.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -99,6 +100,14 @@ class Home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => CardWidget()));
+              },
+            ),
+            ListTile(
+              title: Text('Shared prefs'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        SharedPrefExample(title: 'Shared prefs')));
               },
             ),
           ],
