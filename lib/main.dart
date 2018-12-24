@@ -15,8 +15,14 @@ import 'shared_preferences_example.dart';
 import 'reading_writing_files.dart';
 
 void main() => runApp(MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/login': (context) => LoginPage(),
+        '/bottom_nav': (context) => BottomNav(),
+      },
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      // home: Home(),
     ));
 
 class Home extends StatelessWidget {
@@ -49,75 +55,73 @@ class Home extends StatelessWidget {
             ListTile(
               title: Text('Login'),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+                // Navigator.of(context).pop();
+                Navigator.pushNamed(context, '/login');
               },
             ),
-            ListTile(
-              title: Text('Close'),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
+            // ListTile(
+            //   title: Text('Close'),
+            //   onTap: () {
+            //     Navigator.of(context).pop();
+            //   },
+            // ),
             ListTile(
               title: Text('Bottom Nav'),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => BottomNav()));
+                Navigator.pushNamed(context, '/bottom_nav');
               },
             ),
-            ListTile(
-              title: Text('Http'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => HttpExample()));
-              },
-            ),
-            ListTile(
-              title: Text('TabBar nav'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => TabNavWidget()));
-              },
-            ),
-            ListTile(
-              title: Text('Counter'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Counter()));
-              },
-            ),
-            ListTile(
-              title: Text('Cloud firestore'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        CloudFireStoreExample()));
-              },
-            ),
-            ListTile(
-              title: Text('Card'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => CardWidget()));
-              },
-            ),
-            ListTile(
-              title: Text('Shared prefs'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        SharedPrefExample(title: 'Shared prefs')));
-              },
-            ),
-            ListTile(
-              title: Text('Reading writing files'),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => FilesExample()));
-              },
-            ),
+            // ListTile(
+            //   title: Text('Http'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) => HttpExample()));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('TabBar nav'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) => TabNavWidget()));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('Counter'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) => Counter()));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('Cloud firestore'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) =>
+            //             CloudFireStoreExample()));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('Card'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) => CardWidget()));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('Shared prefs'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) =>
+            //             SharedPrefExample(title: 'Shared prefs')));
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text('Reading writing files'),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (BuildContext context) => FilesExample()));
+            // },
+            // ),
           ],
         ),
       ),
