@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // pages
-import 'pages/bottom_nav.dart';
+// import 'pages/bottom_nav.dart';
 // import 'pages/http_example.dart';
 // import 'pages/tab_nav.dart';
 // import 'pages/stateful_example.dart';
@@ -18,22 +18,24 @@ import 'root_page.dart';
 
 // auth
 import 'auth.dart';
+import 'auth_provider.dart';
 
-void main() => runApp(MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+void main() => runApp(AuthProvider(
+      auth: Auth(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          // '/': (context) => Home(),
+          '/': (context) => RootPage(),
+          // '/login': (context) => LoginPage(),
+          // '/bottom_nav': (context) => BottomNav(),
+        },
+        debugShowCheckedModeBanner: false,
+        // home: Home(),
       ),
-      initialRoute: '/',
-      routes: {
-        // '/': (context) => Home(),
-        '/': (context) => RootPage(
-              auth: Auth(),
-            ),
-        // '/login': (context) => LoginPage(),
-        '/bottom_nav': (context) => BottomNav(),
-      },
-      debugShowCheckedModeBanner: false,
-      // home: Home(),
     ));
 
 class Home extends StatelessWidget {

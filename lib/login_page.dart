@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'auth.dart';
+import 'auth_provider.dart';
 
 // class LoginPage extends StatelessWidget {
 //   @override
@@ -43,8 +43,7 @@ import 'auth.dart';
 enum FormType { login, register }
 
 class LoginForm extends StatefulWidget {
-  LoginForm({this.auth, this.onSignedIn});
-  final BaseAuth auth;
+  LoginForm({this.onSignedIn});
   final VoidCallback onSignedIn;
 
   _LoginFormState createState() => _LoginFormState();
@@ -73,13 +72,14 @@ class _LoginFormState extends State<LoginForm> {
   void validateAndSubmit() async {
     if (validateAndSave()) {
       try {
+        var auth = AuthProvider.of(context).auth;
         if (_formType == FormType.login) {
           String userId =
-              await widget.auth.signInWithEmailAndPassword(_email, _password);
+              await auth.signInWithEmailAndPassword(_email, _password);
           print('Logged in : $userId');
         } else {
-          String userId = await widget.auth
-              .createUserWithEmailAndPassword(_email, _password);
+          String userId =
+              await auth.createUserWithEmailAndPassword(_email, _password);
           print('Registered user : $userId');
         }
         widget.onSignedIn();
