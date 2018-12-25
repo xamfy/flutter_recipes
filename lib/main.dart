@@ -14,11 +14,20 @@ import 'card.dart';
 import 'shared_preferences_example.dart';
 import 'reading_writing_files.dart';
 
+// auth
+import 'auth.dart';
+
 void main() => runApp(MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Home(),
-        '/login': (context) => LoginPage(),
+        // '/': (context) => Home(),
+        '/': (context) => LoginForm(
+              auth: Auth(),
+            ),
+        // '/login': (context) => LoginPage(),
         '/bottom_nav': (context) => BottomNav(),
       },
       debugShowCheckedModeBanner: false,
@@ -52,13 +61,13 @@ class Home extends StatelessWidget {
               accountEmail: Text('trump@covfefe.com'),
               accountName: Text("Covfefe"), // lol :p
             ),
-            ListTile(
-              title: Text('Login'),
-              onTap: () {
-                // Navigator.of(context).pop();
-                Navigator.pushNamed(context, '/login');
-              },
-            ),
+            // ListTile(
+            //   title: Text('Login'),
+            //   onTap: () {
+            //     // Navigator.of(context).pop();
+            //     Navigator.pushNamed(context, '/login');
+            //   },
+            // ),
             // ListTile(
             //   title: Text('Close'),
             //   onTap: () {
