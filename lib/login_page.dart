@@ -43,8 +43,9 @@ import 'auth.dart';
 enum FormType { login, register }
 
 class LoginForm extends StatefulWidget {
-  LoginForm({this.auth});
+  LoginForm({this.auth, this.onSignedIn});
   final BaseAuth auth;
+  final VoidCallback onSignedIn;
 
   _LoginFormState createState() => _LoginFormState();
 }
@@ -81,6 +82,7 @@ class _LoginFormState extends State<LoginForm> {
               .createUserWithEmailAndPassword(_email, _password);
           print('Registered user : $userId');
         }
+        widget.onSignedIn();
       } catch (e) {
         print(e);
       }

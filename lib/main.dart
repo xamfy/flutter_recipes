@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // pages
-import 'package:flutter_chat/login_page.dart';
-import 'bottom_nav.dart';
-import 'http_example.dart';
-import 'tab_nav.dart';
-import 'stateful_example.dart';
-import 'cloud_firestore.dart';
-import 'card.dart';
-import 'shared_preferences_example.dart';
-import 'reading_writing_files.dart';
+import 'pages/bottom_nav.dart';
+// import 'pages/http_example.dart';
+// import 'pages/tab_nav.dart';
+// import 'pages/stateful_example.dart';
+// import 'pages/cloud_firestore.dart';
+// import 'pages/card.dart';
+// import 'pages/shared_preferences_example.dart';
+// import 'pages/reading_writing_files.dart';
+
+// root page
+import 'root_page.dart';
 
 // auth
 import 'auth.dart';
@@ -24,7 +26,7 @@ void main() => runApp(MaterialApp(
       initialRoute: '/',
       routes: {
         // '/': (context) => Home(),
-        '/': (context) => LoginForm(
+        '/': (context) => RootPage(
               auth: Auth(),
             ),
         // '/login': (context) => LoginPage(),
