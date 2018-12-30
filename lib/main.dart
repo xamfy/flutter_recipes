@@ -19,6 +19,7 @@ import 'root_page.dart';
 // auth
 import 'auth.dart';
 import 'auth_provider.dart';
+import 'google_auth.dart';
 
 void main() => runApp(AuthProvider(
       auth: Auth(),
@@ -29,7 +30,8 @@ void main() => runApp(AuthProvider(
         initialRoute: '/',
         routes: {
           // '/': (context) => Home(),
-          '/': (context) => RootPage(),
+          // '/': (context) => RootPage(),
+          '/': (context) => GoogleAuth(),
           // '/login': (context) => LoginPage(),
           // '/bottom_nav': (context) => BottomNav(),
         },
