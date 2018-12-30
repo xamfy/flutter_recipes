@@ -1,30 +1,30 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'dart:async';
+import 'auth_provider.dart';
 
 // firebase_auth
 
-class GoogleAuth extends StatelessWidget {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = new GoogleSignIn();
+class GoogleAuth extends StatefulWidget {
+  _GoogleAuthState createState() => _GoogleAuthState();
+}
 
-  Future<FirebaseUser> _signIn() async {
-    GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-    GoogleSignInAuthentication googleSignInAuthentication =
-        await googleSignInAccount.authentication;
-
-    FirebaseUser user = await _auth.signInWithGoogle(
-        idToken: googleSignInAuthentication.idToken,
-        accessToken: googleSignInAuthentication.accessToken);
-    print('${user.displayName}');
+class _GoogleAuthState extends State<GoogleAuth> {
+  Future<FirebaseUser> _signIn(context) async {
+    var auth = AuthProvider.of(context).auth;
+    FirebaseUser user = await auth.signInWithGoogle();
     return user;
   }
 
-  void _signOut() {
-    googleSignIn.signOut();
-    print('signed out');
+  void _signOut(context) async {
+    try {
+      var auth = AuthProvider.of(context).auth;
+      await auth.signOutGoogle();
+      print('signed out');
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -40,13 +40,13 @@ class GoogleAuth extends StatelessWidget {
           children: <Widget>[
             RaisedButton(
               child: Text('Log in with Google'),
-              onPressed: () => _signIn().then((FirebaseUser user) {
+              onPressed: () => _signIn(context).then((FirebaseUser user) {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (BuildContext context) => HomePage(
                                   user: user,
-                                  onSignedOut: _signOut,
+                                  onSignedOut: () => _signOut(context),
                                 )));
                   }).catchError((e) => print(e)),
             ),
